@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,9 +16,11 @@ public class CommerceItem {
 	
 	@Id
 	@GeneratedValue
+	@Column (name= "id")
 	private String id;
 	
-	@Column(name = "productId")
+	@OneToOne(targetEntity = Product.class)
+	@JoinColumn(name = "productId")
 	private String productId;
 	
 	@Column(name = "quantity")

@@ -3,18 +3,10 @@ package com.project.eccomerce.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table (name="shoppingcart")
 public class ShoppingCart {
 	
-	@Column (name = "items")
 	private List<CommerceItem> items;
-	
-	@Column (name = "amount")
+
 	private BigDecimal amount;
 
 	public List<CommerceItem> getItems() {
