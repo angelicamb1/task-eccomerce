@@ -8,6 +8,10 @@ public class ShoppingCart {
 	private List<CommerceItem> items;
 
 	private BigDecimal amount;
+	
+	public ShoppingCart() {
+		super();
+	}
 
 	public List<CommerceItem> getItems() {
 		return items;

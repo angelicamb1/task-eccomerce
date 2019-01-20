@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableAutoConfiguration
 
 @EntityScan("com.project.eccomerce.model") 
-@EnableJpaRepositories
+@EnableJpaRepositories("com.project.eccomerce.repository")
 @ComponentScan("com.project.eccomerce")
 
 @SpringBootApplication
