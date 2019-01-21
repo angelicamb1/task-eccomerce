@@ -3,6 +3,11 @@ package com.project.eccomerce.model;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
+
+@Component
+@SessionScope
 public class ShoppingCart {
 	
 	private List<CommerceItem> items;

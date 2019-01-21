@@ -6,6 +6,6 @@ import com.project.eccomerce.model.CommerceItem;
 
 public interface CommerceItemRepository extends JpaRepository<CommerceItem, String>{
 
-	
+	CommerceItem findFirstByProductId(String productId);
 
 }
