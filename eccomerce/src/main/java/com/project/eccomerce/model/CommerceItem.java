@@ -1,5 +1,6 @@
 package com.project.eccomerce.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Column;
@@ -12,8 +13,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name= "commerceitem")
-public class CommerceItem {
+public class CommerceItem implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue
 	@Column (name= "id")
@@ -21,7 +24,7 @@ public class CommerceItem {
 	
 	@OneToOne(targetEntity = Product.class)
 	@JoinColumn(name = "productId")
-	private String productId;
+	private Product productId;
 	
 	@Column(name = "quantity")
 	private Integer quantity;
@@ -37,11 +40,11 @@ public class CommerceItem {
 		this.id = id;
 	}
 
-	public String getProductId() {
+	public Product getProductId() {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
+	public void setProductId(Product productId) {
 		this.productId = productId;
 	}
 
@@ -61,7 +64,7 @@ public class CommerceItem {
 		this.amount = amount;
 	}
 
-	public CommerceItem(String id, String productId, Integer quantity, BigDecimal amount) {
+	public CommerceItem(String id, Product productId, Integer quantity, BigDecimal amount) {
 		super();
 		this.id = id;
 		this.productId = productId;
