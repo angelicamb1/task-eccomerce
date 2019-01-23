@@ -34,6 +34,11 @@ public class ProductController {
 		return repositoryProd.findAll();
 	}
 	
+//	@RequestMapping(value = "/shoppingCart", method = RequestMethod.GET)
+//	public ResponseEntity<ShoppingCart> listShoppingshoppingCart() {
+//		return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
+//	}
+	
 	@RequestMapping(value = "/shoppingCart", method = RequestMethod.GET)
 	public ResponseEntity<ShoppingCart> listShoppingshoppingCart() {
 		return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
@@ -46,7 +51,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/shoppingCart/items", method = RequestMethod.POST)
-	public ResponseEntity<CommerceItem> addItemToshoppingCart(@RequestParam("productId") String productId,
+	public ResponseEntity<CommerceItem> addItemToshoppingCart(@RequestParam("productId") Product productId,
 			@RequestParam(value = "qtd", defaultValue = "0") int qtd) throws Exception {
 		
 		CommerceItem commerceItem = repositoryComItem.findFirstByProductId(productId);

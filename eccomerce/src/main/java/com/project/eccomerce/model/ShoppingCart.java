@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -13,8 +16,9 @@ public class ShoppingCart implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
+	@XmlElementWrapper (name="item")
 	private List<CommerceItem> items;
-
+	@XmlElement
 	private BigDecimal amount;
 	
 	public ShoppingCart() {

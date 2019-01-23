@@ -32,6 +32,10 @@ public class CommerceItem implements Serializable {
 	@Column(name = "amount")
 	private BigDecimal amount;
 
+	public CommerceItem() {
+		super();
+	}
+
 	public String getId() {
 		return id;
 	}
