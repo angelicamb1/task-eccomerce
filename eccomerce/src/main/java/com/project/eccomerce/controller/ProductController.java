@@ -34,15 +34,11 @@ public class ProductController {
 		return repositoryProd.findAll();
 	}
 	
-//	@RequestMapping(value = "/shoppingCart", method = RequestMethod.GET)
-//	public ResponseEntity<ShoppingCart> listShoppingshoppingCart() {
-//		return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
-//	}
-	
 	@RequestMapping(value = "/shoppingCart", method = RequestMethod.GET)
 	public ResponseEntity<ShoppingCart> listShoppingshoppingCart() {
 		return new ResponseEntity<>(shoppingCart, HttpStatus.OK);
 	}
+	
 	
 	@RequestMapping(value = "/shoppingCart/items/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteById(@PathVariable String id) {

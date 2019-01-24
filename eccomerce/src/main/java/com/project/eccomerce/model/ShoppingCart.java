@@ -1,38 +1,40 @@
 package com.project.eccomerce.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Component
 @SessionScope
-public class ShoppingCart implements Serializable {
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
+public class ShoppingCart {
 	
-	private static final long serialVersionUID = 1L;
-
-	@XmlElementWrapper (name="item")
+	//@XmlElementWrapper(name = "items", required = true)
+    //@XmlElement(name = "item")
 	private List<CommerceItem> items;
-	@XmlElement
+	//@XmlElement
 	private BigDecimal amount;
 	
 	public ShoppingCart() {
 		super();
 	}
-
+	
+	@JsonProperty
 	public List<CommerceItem> getItems() {
 		return items;
 	}
-
+	
 	public void setItems(List<CommerceItem> items) {
 		this.items = items;
 	}
-
+	
+	@JsonProperty
 	public BigDecimal getAmount() {
 		return amount;
 	}
@@ -82,6 +84,4 @@ public class ShoppingCart implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 }
